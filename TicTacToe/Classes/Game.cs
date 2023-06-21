@@ -47,6 +47,42 @@ namespace Lab04_TicTacToe.Classes
 
             Use any and all pre-existing methods in this program to help construct the method logic. 
              */
+			Player currentP = PlayerOne;
+			int turnCounter = 0;
+
+			while (true)
+			{
+				Board.DisplayBoard();
+				currentP.TakeTurn(Board);
+				turnCounter++;
+
+				if (CheckForWinner(Board))
+				{
+					Board.DisplayBoard();
+					Winner = currentP;
+					Console.WriteLine(currentP.Name + " is the winner");
+					break;
+				}
+				if (turnCounter == 9)
+				{
+					Board.DisplayBoard();
+					Console.WriteLine("Game Over, Draw");
+					break;
+				}
+				
+				if(currentP ==  PlayerOne)
+				{
+					currentP = PlayerTwo;
+				}
+				else
+				{
+					currentP = PlayerOne;
+				}
+			}
+
+			// if there is no winner, we will return null
+			return null;
+
 		}
 
 
@@ -82,10 +118,17 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
-				// TODO:  Determine a winner has been reached. 
-				// return true if a winner has been reached. 
-			
-			}
+                // TODO:  Determine a winner has been reached. 
+                // return true if a winner has been reached. 
+
+                if (a == b && b == c)
+                {
+                    // p1 or p2 is winner:
+                    return true;
+                }
+            }
+
+            // no winner, game didnt finish
 
 			return false;
 		}
