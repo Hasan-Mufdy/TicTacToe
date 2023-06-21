@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Lab04_TicTacToe.Classes
 {
@@ -19,5 +20,25 @@ namespace Lab04_TicTacToe.Classes
 			Row = row;
 			Column = column;
 		}
-	}
+
+		//public Position gitPosition(Board board)
+		//{
+		//	Position p = null;
+
+		//	while (p is null)
+		//	{
+		//		Console.WriteLine("please select a position...");
+		//		Int32.TryParse(Console.ReadLine(), out int position);
+		//		p = PositionForNumber(position);
+		//	}
+
+		//	return p;
+		//}
+
+
+        
+
+
+
+    }
 }
