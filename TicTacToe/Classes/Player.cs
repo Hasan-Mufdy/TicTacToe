@@ -50,7 +50,7 @@ namespace Lab04_TicTacToe.Classes
 			}
 		}
 
-	
+
 		public void TakeTurn(Board board)
 		{
 			IsTurn = true;
@@ -67,6 +67,23 @@ namespace Lab04_TicTacToe.Classes
 			{
 				Console.WriteLine("This space is already occupied");
 			}
+			IsTurn = false;
 		}
+
+
+		//public override bool Equals(object obj)
+		//      {
+		//          if (obj == null || GetType() != obj.GetType())
+		//              return false;
+
+		//          Player other = (Player)obj;
+		//          return Name == other.Name && Marker == other.Marker;
+		//      }
+
+		//      public override int GetHashCode()
+		//      {
+		//          return HashCode.Combine(Name, Marker);
+		//      }
+
 	}
 }

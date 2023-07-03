@@ -31,7 +31,7 @@ namespace Lab04_TicTacToe.Classes
 		public Player Play()
 		{
 
-			//TODO: Complete this method and utilize the rest of the class structure to play the game.
+            //TODO: Complete this method and utilize the rest of the class structure to play the game.
 
             /*
              * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
@@ -47,43 +47,34 @@ namespace Lab04_TicTacToe.Classes
 
             Use any and all pre-existing methods in this program to help construct the method logic. 
              */
-			Player currentP = PlayerOne;
-			int turnCounter = 0;
+            Player currentP = PlayerOne;
+            int turnCounter = 0;
+            //Position position = new Position(2, 0);
+            while (true)
+            {
+                Board.DisplayBoard();
+                currentP.TakeTurn(Board);
+                turnCounter++;
 
-			while (true)
-			{
-				Board.DisplayBoard();
-				currentP.TakeTurn(Board);
-				turnCounter++;
+                if (CheckForWinner(Board))
+                {
+                    Board.DisplayBoard();
+                    Winner = currentP;
+                    Console.WriteLine(currentP.Name + " is the winner");
+                    return Winner;
+                }
 
-				if (CheckForWinner(Board))
-				{
-					Board.DisplayBoard();
-					Winner = currentP;
-					Console.WriteLine(currentP.Name + " is the winner");
-					break;
-				}
-				if (turnCounter == 9)
-				{
-					Board.DisplayBoard();
-					Console.WriteLine("Game Over, Draw");
-					break;
-				}
-				
-				if(currentP ==  PlayerOne)
-				{
-					currentP = PlayerTwo;
-				}
-				else
-				{
-					currentP = PlayerOne;
-				}
-			}
+                if (turnCounter == 9)
+                {
+                    Board.DisplayBoard();
+                    Console.WriteLine("Game Over, Draw");
+                    return null;
+                }
 
-			// if there is no winner, we will return null
-			return null;
-
-		}
+                currentP = (currentP == PlayerOne) ? PlayerTwo : PlayerOne;
+            }
+			return Winner;
+        }
 
 
 		/// <summary>
