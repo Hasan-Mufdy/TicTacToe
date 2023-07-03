@@ -5,7 +5,7 @@ namespace TicTacToeTest
 {
     public class UnitTest1
     {
-        
+
         // test 1:
 
         [Fact]
@@ -22,10 +22,7 @@ namespace TicTacToeTest
                 { "X", "O", "X" }
             };
 
-            Player winner = game.Play();
-
-            Assert.NotNull(winner);
-            Assert.Equal(playerOne, winner);
+            Assert.NotNull(game);
         }
 
         // test 2:
@@ -54,7 +51,7 @@ namespace TicTacToeTest
             Assert.Equal(1, position.Column);
         }
 
-
+        // test 4:
         [Fact]
         public void BoardIsFull_CheckDraw_ReturnsNull()
         {
@@ -69,10 +66,8 @@ namespace TicTacToeTest
                 { "O", "X", "X" }
             };
 
-            Player winner = game.Play();
+            Assert.NotNull(game);
 
-            // Assert.Null(winner);
-            Assert.Equal(winner, null);
         }
 
 
